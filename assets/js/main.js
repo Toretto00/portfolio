@@ -215,16 +215,22 @@ function closeProjectInfo(){
 
 const projectInfoContent = [
     {
+        title: 'Homelisti',
+        subTitle: 'Real-estate website',
+        content: "Developed a user-friendly real estate website to enable users to view property listings and contact property owners using Typescript, NextJS and MUI.</br> The project provides a platform where users can browse real estate listings, view detailed information and images of properties, and directly contact the property owners for inquiries.</br> Constructed a backend using C#, ASP.NET Core Web API to establish connections between frontend and database, ensuring smooth data flow and real-times updates for users.",
+        demoLink: "https://github.com/Toretto00/homelisti_webpage"
+    },
+    {
         title: 'VISSAN',
         subTitle: 'Retail store management system',
         content: "Developed a NextJS application management system for VISSAN's retail stores to streamline inventory reporting, order processing, and goods transfer between stores.</br> Constructed a user-friendly website using Typescript and NextJS to enable users to manage inventories and orders.</br> Constructed a backend using C#, ASP.NET Core Web API to establish connections between frontend and database, ensuring smooth data flow and real-times updates for users.</br> Utilized SQLServer to create a database for users for seamless data management and retrieval.</br> Applying docker for deployment (Firstly, deploy frontend by vercel and azure for backend).",
         demoLink: 'https://vissan.vercel.app'
     },
     {
-        title: 'Homelisti',
-        subTitle: 'Real-estate website',
-        content: "Developed a user-friendly real estate website to enable users to view property listings and contact property owners using Typescript, NextJS and MUI.</br> The project provides a platform where users can browse real estate listings, view detailed information and images of properties, and directly contact the property owners for inquiries.</br> Constructed a backend using C#, ASP.NET Core Web API to establish connections between frontend and database, ensuring smooth data flow and real-times updates for users.",
-        demoLink: ""
+        title: 'Homlisti',
+        subTitle: 'Real-estate mobile application',
+        content: "A mobile application that allows users to view real estate information, contact details, and enables users to post real estate listings.</br> Developed a user-friendly real estate mobile app to enable users to view property listings and contact property owners using Javascript, ReactNative and MUI.</br> Testing API with Postman.",
+        demoLink: 'https://github.com/Toretto00/Homelist'
     }
 ]
 
@@ -246,7 +252,8 @@ var projectElement = document.getElementsByClassName('project-container');
 let projectContent = '';
 
 projectInfoContent.map(item => {
-    projectContent += `<div class="project-box">
+    if(item.title === "VISSAN"){
+        projectContent += `<div class="project-box main-project">
                         <i class="uil uil-shop"></i>
                         <h3>${item.title}</h3>
                         <label>${item.subTitle}</label>
@@ -255,11 +262,22 @@ projectInfoContent.map(item => {
                             <button class="btn ${item.title}-demo">Demo</button>
                         </div>
                     </div>`
+    } else {
+        projectContent += `<div class="project-box">
+                            <i class="uil uil-shop"></i>
+                            <h3>${item.title}</h3>
+                            <label>${item.subTitle}</label>
+                            <div class="project-action">
+                                <button class="btn ${item.title}-info">More info</button>
+                                <button class="btn ${item.title}-demo">Demo</button>
+                            </div>
+                        </div>`
+    }
 })
 
 projectElement[0].innerHTML = projectContent;
 
-projectInfoContent.map(item => {
+projectInfoContent.forEach((item) => {
     var info = [...document.getElementsByClassName(`btn ${item.title}-info`)];
 
     info[0].addEventListener('click', () => showProjectInfo(item))

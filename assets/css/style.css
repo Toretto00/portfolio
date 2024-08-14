@@ -371,7 +371,7 @@ h3{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
     height: 250px;
     background-color: var(--color-white);
     border-radius: 20px;
@@ -451,6 +451,10 @@ h3{
     background-color: var(--color-white);
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+}
+
+.main-project{
+    width: 40%;
 }
 
 .project-info-content>h3{
